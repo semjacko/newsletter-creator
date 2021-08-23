@@ -3,18 +3,26 @@ import { NEWSLETTER_HTML } from '../assets/constants';
 const zip = require('jszip')();
 const zipUtils = require('jszip-utils');
 
-const tryWidth = (width, images, tolerance) => {
+const tryWidth = (width, images) => {
     let i = 0;
     
     while (i < images.length) {
         let currRowWidth = 0;
+        let j = i;
 
-        while (i < images.length && width - currRowWidth > tolerance) {
-            currRowWidth += images[i].width;
-            i++;
+        // skus vytvorit riadok obrazkov
+        while (j < images.length && currRowWidth < width) {
+            currRowWidth += images[j].width;
+            // ak obrazky v riadku nemaju rovnaku vysku
+            if (j > i && images[j].height !== images[j-1].height) {
+                return false;
+            }
+            j++;
         }
+        
+        i = j;
 
-        if (Math.abs(width - currRowWidth) > tolerance) {
+        if (currRowWidth !== width) {
             return false;	
         }
     
@@ -36,7 +44,7 @@ const detectWidths = (images) => {
         width += images[i].width;
 
         // skusi sa zostavit NL s danou sirkou
-        if (tryWidth(width, images, 2)) {  // 2px tolerancia
+        if (tryWidth(width, images)) {
             widths.push(width);
         }
 
@@ -46,7 +54,7 @@ const detectWidths = (images) => {
     return widths;
 }
 
-const createNL = (images, width, links, title, header, color) => {
+const createNL = (images, width, links, title, textColor, backgroundColor) => {
     let nImages = images.length,
         i = 0,
         html = `<table role="presentation" cellSpacing="0" cellPadding="0" border="0" width="100%">`;

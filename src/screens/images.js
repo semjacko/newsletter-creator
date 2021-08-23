@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImagesDropzone } from '../components/images-dropzone';
-import { LANG } from '../assets/lang';
+import { TRANSLATIONS } from '../assets/lang';
 
 const loadImage = (file) => {
   return new Promise((resolve, reject) => {
@@ -16,11 +16,11 @@ const Images = ({onNext, language}) => {
     return (
         <div className={'container-workspace bg-light rounded-3 shadow d-flex flex-column'}>
           <div className={'h-80 d-flex justify-content-center align-items-center'}>
-            <h2>{LANG['images'][language]}</h2>
+            <h2>{TRANSLATIONS['images'][language]}</h2>
           </div>
           <div className={'h-560 d-flex justify-content-center align-items-center'}>
             <ImagesDropzone
-              placeholder={LANG['drag_n_drop'][language]}
+              placeholder={TRANSLATIONS['drag_n_drop'][language]}
               onDrop={async (files) => {
                   let images = []
                   for (const f of files) {

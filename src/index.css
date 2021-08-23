@@ -8,6 +8,7 @@ body {
 }
 
 .app {
+  /*background-image: url('/files/assets/bg.jpg');*/
   background-size: cover;
   min-height: 100vh;
   display: flex;

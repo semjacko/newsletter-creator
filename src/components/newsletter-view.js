@@ -1,4 +1,4 @@
-const NewsletterView = ({images, width, header, color, imageHighlights, maxWidth, maxHeight}) => {
+const NewsletterView = ({images, width, color, imageHighlights, maxWidth, maxHeight}) => {
     let rows = [];
 
     let len = images.length, i = 0;

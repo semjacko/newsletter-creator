@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Input, ButtonGroup, InputGroup } from 'rsuite';
 import { NewsletterView } from '../components/newsletter-view';
-import { LANG } from '../assets/lang';
+import { TRANSLATIONS } from '../assets/lang';
 
 const LinkInputs = ({nInputs, defaultValues, setLinks, language}) => {
     const [values, setValues] = useState(defaultValues);
@@ -13,7 +13,7 @@ const LinkInputs = ({nInputs, defaultValues, setLinks, language}) => {
                 <InputGroup.Addon>#{i+1}</InputGroup.Addon>
                 <Input 
                     value={values[i]} 
-                    placeholder={`${LANG['link_image'][language]} #${i+1}`} 
+                    placeholder={`${TRANSLATIONS['link_image'][language]} #${i+1}`} 
                     onChange={(text) => {
                         let newValues = [...values];
                         let texts = text.split(/\s+/);
@@ -38,7 +38,7 @@ const Links = ({images, defaultLinks, width, onNext, onBack, language}) => {
             <div className={'h-640 d-flex justify-content-center align-items-center'}>
                 <div className={'h-600 w-350 p-l-20 d-flex flex-column'}>
                     <div className={'h-60 d-flex justify-content-center align-items-center'}>
-                        <h3>{LANG['paste_links'][language]}</h3>
+                        <h3>{TRANSLATIONS['paste_links'][language]}</h3>
                     </div>
                     <div className={'h-540 overflow-auto'}>
                         <LinkInputs nInputs={images.length} defaultValues={defaultLinks} setLinks={setLinks} language={language}/>
@@ -50,8 +50,8 @@ const Links = ({images, defaultLinks, width, onNext, onBack, language}) => {
             </div>
             <div className={'h-60 d-flex justify-content-center align-items-center'}>
                 <ButtonGroup>
-                    <Button appearance={'ghost'} className={'w-350'} onClick={onBack}>Back</Button>
-                    <Button appearance={'primary'} className={'w-350'} onClick={() => onNext(links)}>Next</Button>
+                    <Button appearance={'ghost'} className={'w-350'} onClick={onBack}>{TRANSLATIONS['back'][language]}</Button>
+                    <Button appearance={'primary'} className={'w-350'} onClick={() => onNext(links)}>{TRANSLATIONS['next'][language]}</Button>
                 </ButtonGroup>
             </div>
         </div>

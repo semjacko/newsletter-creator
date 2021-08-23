@@ -1,5 +1,7 @@
-const DEFAULT_HEADER = 'V prípade, že sa vám tento mail nezobrazuje správne, <a href="*|ARCHIVE|*" style="text-decoration:underline;color:#7080FF">kliknite sem</a>.';
-const DEFAULT_TITLE = 'COOP Newsletter 1.1.2021'
+const DEFAULT_LANGUAGE = 'en';
+const DEFAULT_TITLE = 'COOP Newsletter 1.1.2021';
+const DEFAULT_TEXT_COLOR = '#000000';
+const DEFAULT_BACKGROUND_COLOR = '#ffffff';
 
 const NEWSLETTER_HTML = (title, content) => `<!DOCTYPE html><html lang="sk">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +22,9 @@ Tento email bol zaslaný na <a href="mailto:*|EMAIL|*" target="_blank" style="co
 Zmeniť nastavenia</a><br/>*|LIST:ADDRESSLINE|*<br/><br/></td></tr></table></td></tr></table></center></body></html>`
 
 export { 
-    DEFAULT_HEADER,
+    DEFAULT_LANGUAGE,
     DEFAULT_TITLE,
+    DEFAULT_TEXT_COLOR,
+    DEFAULT_BACKGROUND_COLOR,
     NEWSLETTER_HTML
 }

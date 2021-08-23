@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import {RadioGroup, Radio, Button, ButtonGroup} from 'rsuite';
 import { detectWidths } from '../components/newsletter-controller';
 import { NewsletterView } from '../components/newsletter-view';
-import { LANG } from '../assets/lang';
+import { TRANSLATIONS } from '../assets/lang';
 
 const WidthPicker = ({images, onNext, onBack, language}) => {
     let widths = detectWidths(images);
+    console.log(widths);
+
     const [selected, setSelected] = useState(widths[0]);
 
     let radioWidths = [];
@@ -18,7 +20,7 @@ const WidthPicker = ({images, onNext, onBack, language}) => {
             <div className={'h-640 d-flex justify-content-center align-items-center'}>
                 <div className={'h-600 w-350 p-l-20 d-flex flex-column'}>
                     <div className={'h-60 d-flex justify-content-center align-items-center'}>
-                        <h3>{LANG['pick_width'][language]}</h3>
+                        <h3>{TRANSLATIONS['pick_width'][language]}</h3>
                     </div>
                     <div className={'h-540 overflow-auto'}>
                         <RadioGroup 
@@ -37,8 +39,8 @@ const WidthPicker = ({images, onNext, onBack, language}) => {
             </div>
             <div className={'h-60 d-flex justify-content-center align-items-center'}>
                 <ButtonGroup>
-                    <Button appearance={'ghost'} className={'w-350'} onClick={onBack}>Back</Button>
-                    <Button appearance={'primary'} className={'w-350'} onClick={() => onNext(selected)}>Next</Button>
+                    <Button appearance={'ghost'} className={'w-350'} onClick={onBack}>{TRANSLATIONS['back'][language]}</Button>
+                    <Button appearance={'primary'} className={'w-350'} onClick={() => onNext(selected)}>{TRANSLATIONS['next'][language]}</Button>
                 </ButtonGroup>
             </div>
         </div>

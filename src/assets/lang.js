@@ -1,4 +1,4 @@
-const LANG = {
+const TRANSLATIONS = {
     'author': {
         'en': 'author',
         'sk': 'autor'
@@ -43,6 +43,34 @@ const LANG = {
         'en': 'Overview',
         'sk': 'Kontrola'
     },
+    'next': {
+        'en': 'Next',
+        'sk': 'Ďalej'
+    },
+    'back': {
+        'en': 'Back',
+        'sk': 'Späť'
+    },
+    'save': {
+        'en': 'Save',
+        'sk': 'Uložiť'
+    },
+    'settings': {
+        'en': 'Settings',
+        'sk': 'Nastavenia'
+    }
 }
 
-export { LANG }
+
+const LANGUAGES = [
+    {
+      'value': 'sk',
+      'label': 'Slovensky'
+    },
+    {
+      'value': 'en',
+      'label': 'English'
+    }
+  ]
+
+export { TRANSLATIONS, LANGUAGES }

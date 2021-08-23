@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Steps } from 'rsuite';
+import { Steps, SelectPicker } from 'rsuite';
 import { Images } from './screens/images';
 import { Home } from './screens/home';
 import { WidthPicker } from './screens/width-picker';
@@ -7,8 +7,8 @@ import { Links } from './screens/links';
 import { Settings } from './screens/settings';
 import { Save } from './screens/save';
 import { createNL, createZip } from './components/newsletter-controller';
-import { DEFAULT_HEADER, DEFAULT_TITLE } from './assets/constants';
-import { LANG } from './assets/lang';
+import { DEFAULT_BACKGROUND_COLOR, DEFAULT_LANGUAGE, DEFAULT_TEXT_COLOR, DEFAULT_TITLE } from './assets/constants';
+import { TRANSLATIONS, LANGUAGES } from './assets/lang';
 
 export default function App() {
   const [currentStep, setCurrentStep] = useState(-1);
@@ -16,9 +16,9 @@ export default function App() {
   const [links, setLinks] = useState([]);
   const [width, setWidth] = useState(0);
   const [title, setTitle] = useState(DEFAULT_TITLE);
-  const [header, setHeader] = useState(DEFAULT_HEADER);
-  const [color, setColor] = useState('');
-  const [language, setLanguage] = useState('sk')
+  const [textColor, setTextColor] = useState(DEFAULT_TEXT_COLOR);
+  const [backgroundColor, setBackgroundColor] = useState(DEFAULT_BACKGROUND_COLOR);
+  const [language, setLanguage] = useState(DEFAULT_LANGUAGE);
 
   const onImagesDrop = (images) => {
     setImages(images);
@@ -36,15 +36,15 @@ export default function App() {
     setCurrentStep(currentStep + 1);
   }
 
-  const onSettingsPick = (title, header, color) => {
+  const onSettingsPick = (title, textColor, backgroundColor) => {
     setTitle(title);
-    setHeader(header);
-    setColor(color);
+    setTextColor(textColor);
+    setBackgroundColor(backgroundColor);
     setCurrentStep(currentStep + 1);
   }
 
   const onSave = () => {
-    let html = createNL(images, width, links, title, header, color);
+    let html = createNL(images, width, links, title, textColor, backgroundColor);
     var prettier = require('js-beautify').html;
     let beautifulHTML = prettier(html);
     createZip(beautifulHTML, images);
@@ -55,32 +55,33 @@ export default function App() {
     setCurrentStep(currentStep - 1);
   }
 
-  // Landing
-  if (currentStep === -1) {
-    return (
+  return (     
     <div className={'app'}>
+      <SelectPicker
+        value={language}
+        data={LANGUAGES}
+        cleanable={false}
+        searchable={false}
+        onChange={(value) => {setLanguage(value)}}
+        appearance={'subtle'}
+        style={{ position: 'absolute', right: 40, top: 0}}
+        renderValue={(value) => <img src={`./files/${value}.png`} height={30}/>}
+      />
+      { currentStep === -1 ? 
       <Home 
         onNext={() => {
           setCurrentStep(currentStep + 1);
         }}
         language={language}
-      />
-    </div>
-    );
-  }
-
-  return (     
-    <div className={'app'}>
-      {/* TODO */}
-      <Button style={{position: 'absolute', top: 0, left: 0}} onClick={() => {setLanguage('sk')}}>SK</Button>
-      <Button style={{position: 'absolute', top: 0, left: 50}} onClick={() => {setLanguage('en')}}>EN</Button>
+      /> 
+      : 
       <Steps current={currentStep} vertical className='w-200'>
-        <Steps.Item title={LANG['drop_images'][language]} />
-        <Steps.Item title={LANG['pick_width'][language]} />
-        <Steps.Item title={LANG['paste_links'][language]} />
-        <Steps.Item title={LANG['final_settings'][language]} />
-        <Steps.Item title={LANG['overview'][language]} />
-      </Steps>
+        <Steps.Item title={TRANSLATIONS['drop_images'][language]} />
+        <Steps.Item title={TRANSLATIONS['pick_width'][language]} />
+        <Steps.Item title={TRANSLATIONS['paste_links'][language]} />
+        <Steps.Item title={TRANSLATIONS['final_settings'][language]} />
+        <Steps.Item title={TRANSLATIONS['overview'][language]} />
+      </Steps> }
       { currentStep === 0 ?
         // upload images
         <Images 
@@ -111,8 +112,8 @@ export default function App() {
           images={images}
           width={width}
           defaultTitle={title}
-          defaultHeader={header}
-          defaultColor={color}
+          defaultTextColor={textColor}
+          defaultBackgroundColor={backgroundColor}
           onNext={onSettingsPick}
           onBack={onBack}
           language={language}
@@ -124,8 +125,8 @@ export default function App() {
           width={width}
           links={links}
           title={title}
-          header={header}
-          color={color}
+          textColor={textColor}
+          backgroundColor={backgroundColor}
           onSave={onSave}
           onBack={onBack}
           language={language}

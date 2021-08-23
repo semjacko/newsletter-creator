@@ -1,7 +1,5 @@
 - opravit newsletterView
 - linky onfocus scroll to
-- lepsi detect sirky newslettera aj na zaklade vysky
-- pridat gif na homepage a bg image
-- text color v settingoch
+- pridat gify (na homepage, images...)
 - vyriesit nespravne zoradenie obrazkov
 - newsletter-controller a newsletter-view refactor
