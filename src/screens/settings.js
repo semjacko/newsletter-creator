@@ -22,12 +22,12 @@ const Settings = ({images, width, defaultTitle, defaultTextColor, defaultBackgro
                     </div>
                     <div className={'h-540 overflow-auto'}>
                         <Input placeholder={'Title'} value={title} onChange={onTitleChange} className={'m-t-5'}/>
-                        <ChromePicker disableAlpha onChange={ handleTextColorChange } color={textColor} className={'m-t-5'}/>
                         <ChromePicker disableAlpha onChange={ handleBackgroundColorChange } color={backgroundColor} className={'m-t-5'}/>
+                        <ChromePicker disableAlpha onChange={ handleTextColorChange } color={textColor} className={'m-t-5'}/>
                     </div>
                 </div>
                 <div className={'h-600 w-650 d-flex align-items-center justify-content-center'}>
-                    <NewsletterView images={images} width={width} maxWidth={600} maxHeight={600}/>
+                    <NewsletterView images={images} width={width} showHeaderAndFooter={true} backgroundColor={backgroundColor} textColor={textColor} maxWidth={600} maxHeight={600}/>
                 </div>
             </div>
             <div className={'h-60 d-flex justify-content-center align-items-center'}>

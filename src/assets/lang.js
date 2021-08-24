@@ -24,8 +24,8 @@ const TRANSLATIONS = {
         'sk': 'Vložte obrázky'
     },
     'drag_n_drop': {
-        'en': 'Drag \'n\' drop the images here, or click to select them',
-        'sk': 'Presuňte obrázky sem, alebo klinite a zvolte ich'
+        'en': 'Click or Drag files to this area',
+        'sk': 'Kliknite alebo Presuňte obrázky sem'
     },
     'pick_width': {
         'en': 'Pick width',

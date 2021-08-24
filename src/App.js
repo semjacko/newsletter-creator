@@ -64,7 +64,7 @@ export default function App() {
         searchable={false}
         onChange={(value) => {setLanguage(value)}}
         appearance={'subtle'}
-        style={{ position: 'absolute', right: 40, top: 0}}
+        style={{ position: 'absolute', right: 30, top: 0}}
         renderValue={(value) => <img src={`./files/${value}.png`} height={30}/>}
       />
       { currentStep === -1 ? 
@@ -75,7 +75,7 @@ export default function App() {
         language={language}
       /> 
       : 
-      <Steps current={currentStep} vertical className='w-200'>
+      <Steps current={currentStep} vertical className='w-200' className={'d-flex flex-column h-700 p-t-120 w-200'}>
         <Steps.Item title={TRANSLATIONS['drop_images'][language]} />
         <Steps.Item title={TRANSLATIONS['pick_width'][language]} />
         <Steps.Item title={TRANSLATIONS['paste_links'][language]} />

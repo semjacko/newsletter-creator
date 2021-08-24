@@ -10,7 +10,7 @@ const Save = ({images, width, links, textColor, backgroundColor, onSave, onBack,
                 <h2>{TRANSLATIONS['overview'][language]}</h2>
             </div>
             <div className={'h-560 d-flex justify-content-center align-items-center'}>
-                <NewsletterView images={images} width={width} maxWidth={600} maxHeight={550}/>
+                <NewsletterView images={images} showHeaderAndFooter={true} backgroundColor={backgroundColor} textColor={textColor} width={width} maxWidth={700} maxHeight={550}/>
             </div>
             <div className={'h-60 d-flex justify-content-center align-items-center'}>
                 <ButtonGroup>

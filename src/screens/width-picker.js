@@ -34,7 +34,7 @@ const WidthPicker = ({images, onNext, onBack, language}) => {
                     </div>
                 </div>
                 <div className={'h-600 w-650 d-flex align-items-center justify-content-center'}>
-                    <NewsletterView images={images} width={selected} maxWidth={600} maxHeight={600}/>
+                    <NewsletterView images={images} imageHighlights={true} width={selected} maxWidth={600} maxHeight={600}/>
                 </div>
             </div>
             <div className={'h-60 d-flex justify-content-center align-items-center'}>
