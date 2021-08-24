@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, ButtonGroup, Input } from 'rsuite';
+import { Button, ButtonGroup, Input, InputGroup, Divider } from 'rsuite';
 import { NewsletterView } from '../components/newsletter-view';
 import { ChromePicker } from 'mp-react-color';
 import { TRANSLATIONS } from '../assets/lang';
@@ -21,9 +21,19 @@ const Settings = ({images, width, defaultTitle, defaultTextColor, defaultBackgro
                         <h3>{TRANSLATIONS['settings'][language]}</h3>
                     </div>
                     <div className={'h-540 overflow-auto'}>
-                        <Input placeholder={'Title'} value={title} onChange={onTitleChange} className={'m-t-5'}/>
-                        <ChromePicker disableAlpha onChange={ handleBackgroundColorChange } color={backgroundColor} className={'m-t-5'}/>
-                        <ChromePicker disableAlpha onChange={ handleTextColorChange } color={textColor} className={'m-t-5'}/>
+                        <Divider className={'m-t-5'}>{TRANSLATIONS['title'][language]}</Divider>
+                        <InputGroup>
+                            <InputGroup.Addon>{TRANSLATIONS['title'][language]}</InputGroup.Addon>
+                            <Input value={title} onChange={onTitleChange}/>
+                        </InputGroup>
+                        <Divider className={'m-t-5'}>{TRANSLATIONS['bg_color'][language]}</Divider>
+                        <div className={'d-flex justify-content-center'}>
+                            <ChromePicker disableAlpha onChange={ handleBackgroundColorChange } color={backgroundColor}/>
+                        </div>
+                        <Divider className={'m-t-5'}>{TRANSLATIONS['text_color'][language]}</Divider>
+                        <div className={'d-flex justify-content-center'}>
+                            <ChromePicker disableAlpha onChange={ handleTextColorChange } color={textColor}/>
+                        </div>
                     </div>
                 </div>
                 <div className={'h-600 w-650 d-flex align-items-center justify-content-center'}>

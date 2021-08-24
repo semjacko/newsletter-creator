@@ -88,7 +88,7 @@ const createNL = (images, width, links, title, textColor, backgroundColor) => {
 
     html += `</table>`;
 
-    let htmltext = NEWSLETTER_HTML(title, html);
+    let htmltext = NEWSLETTER_HTML(title, html, backgroundColor, textColor);
 
     return htmltext;
 }

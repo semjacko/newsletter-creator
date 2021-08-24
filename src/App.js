@@ -65,7 +65,7 @@ export default function App() {
         onChange={(value) => {setLanguage(value)}}
         appearance={'subtle'}
         style={{ position: 'absolute', right: 30, top: 0}}
-        renderValue={(value) => <img src={`./files/${value}.png`} height={30}/>}
+        renderValue={(value) => <img src={`./files/${value}.png`} height={30} alt={`${value}`}/>}
       />
       { currentStep === -1 ? 
       <Home 

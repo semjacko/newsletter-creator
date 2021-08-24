@@ -58,7 +58,20 @@ const TRANSLATIONS = {
     'settings': {
         'en': 'Settings',
         'sk': 'Nastavenia'
+    },
+    'title': {
+        'en': 'Title',
+        'sk': 'Názov'
+    },
+    'bg_color': {
+        'en': 'Background color',
+        'sk': 'Farba pozadia'
+    },
+    'text_color': {
+        'en': 'Text color',
+        'sk': 'Farba textu'
     }
+
 }
 
 

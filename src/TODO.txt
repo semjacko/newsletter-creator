@@ -1,5 +1,4 @@
-- opravit newsletterView
 - linky onfocus scroll to
 - pridat gify (na homepage, images...)
 - vyriesit nespravne zoradenie obrazkov
-- newsletter-controller a newsletter-view refactor
+- newsletter-controller

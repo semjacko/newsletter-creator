@@ -1,3 +1,6 @@
+const NL_HEADER = () => <p style={{fontSize: 12}}>V prípade, že sa vám tento mail nezobrazuje správne, <b>kliknite sem</b>.</p>;
+const NL_FOOTER = () => <><p style={{fontSize: 12}}>Tento email bol zaslaný na váš email</p><p style={{fontSize: 12}}>Prečo mi prišiel tento email? &nbsp;  Odhlásiť z noviniek &nbsp; Zmeniť nastavenia</p></>;
+
 const NewsletterView = ({images, links, width, backgroundColor, textColor, imageHighlights, showHeaderAndFooter, maxWidth, maxHeight}) => {
     let rows = [],
         i = 0;
@@ -25,9 +28,17 @@ const NewsletterView = ({images, links, width, backgroundColor, textColor, image
 
     return (
         <div className='border' style={{marginTop: 10, maxHeight: maxHeight, maxWidth: maxWidth, overflowY: 'auto', overflowX: 'hidden'}}>
-            {showHeaderAndFooter && <div style={{width: maxWidth - 20, backgroundColor: backgroundColor, color: textColor, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20}}>header</div>}
+            {showHeaderAndFooter && 
+                <div style={{width: maxWidth - 20, backgroundColor: backgroundColor, color: textColor, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20}}>
+                    <NL_HEADER/>
+                </div>
+            }
             {rows}
-            {showHeaderAndFooter && <div style={{width: maxWidth - 20, backgroundColor: backgroundColor, color: textColor, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20}}>footer</div>}
+            {showHeaderAndFooter && 
+                <div style={{width: maxWidth - 20, backgroundColor: backgroundColor, color: textColor, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection:'column', padding: 20}}>
+                    <NL_FOOTER/>
+                </div>
+            }
         </div> 
     );
 }
