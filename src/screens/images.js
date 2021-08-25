@@ -1,6 +1,7 @@
 import React from 'react';
 import { TRANSLATIONS } from '../assets/lang';
 import { Uploader } from 'rsuite';
+import { Help } from '../components/help';
 
 const loadImage = (file) => {
   return new Promise((resolve, reject) => {
@@ -14,9 +15,9 @@ const loadImage = (file) => {
 
 const Images = ({onNext, language}) => {
     return (
-        <div className={'container-workspace bg-light rounded-3 shadow d-flex flex-column'}>
+        <div className={'container-workspace bg-light rounded-3 shadow d-flex flex-column position-relative'}>
           <div className={'h-80 d-flex justify-content-center align-items-center'}>
-            <h2>{TRANSLATIONS['images'][language]}</h2>
+            <h2>{TRANSLATIONS[language]['images']}</h2>
           </div>
           <div className={'h-560 d-flex justify-content-center align-items-center'}>
             <Uploader
@@ -38,11 +39,14 @@ const Images = ({onNext, language}) => {
                 onNext(images);
               }}
             >
-              <div style={{lineHeight: '400px', width: 800}}>{TRANSLATIONS['drag_n_drop'][language]}</div>
+              <div style={{lineHeight: '400px', width: 800}}>{TRANSLATIONS[language]['drag_n_drop']}</div>
             </Uploader>
           </div>
-          <div className={'h-60 d-flex justify-content-center align-items-center'}>
-          </div>
+          <Help title={'Images uploading'} style={{position: 'absolute', top: 10, left: 10}}>
+            <p>Select all images you want to use and drag and drop them to the dropzone.</p>
+            <p>Images have to sorted by their names.</p>
+            <img src={'./files/dragndrop.gif'} style={{width: 600, margin: 20}}/>
+          </Help>
         </div>
     );
 }

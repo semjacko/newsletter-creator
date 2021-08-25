@@ -1,3 +1,5 @@
+import React from 'react';
+
 const NL_HEADER = () => <p style={{fontSize: 12}}>V prípade, že sa vám tento mail nezobrazuje správne, <b>kliknite sem</b>.</p>;
 const NL_FOOTER = () => <><p style={{fontSize: 12}}>Tento email bol zaslaný na váš email</p><p style={{fontSize: 12}}>Prečo mi prišiel tento email? &nbsp;  Odhlásiť z noviniek &nbsp; Zmeniť nastavenia</p></>;
 

@@ -7,10 +7,10 @@ const Home = ({onNext, language}) => {
         <div className={'container-home bg-light rounded-3 shadow mw-50 d-flex flex-column'}>
             <div className={'d-flex flex-column flex-fill justify-content-center align-items-center'}>
                 <h2>Newsletter creator</h2>
-                <Button appearance={'link'} size={'lg'} onClick={onNext} className={'m-4'}>{TRANSLATIONS['lets_start'][language]}</Button>
+                <Button appearance={'link'} size={'lg'} onClick={onNext} className={'m-4'}>{TRANSLATIONS[language]['lets_start']}</Button>
             </div>
             <div className={'d-flex justify-content-end p-2'}>
-                <span>{TRANSLATIONS['version'][language]}: 0.0.1</span>
+                <span>{TRANSLATIONS[language]['version']}: 1.0.0</span>
             </div>
         </div>
     );

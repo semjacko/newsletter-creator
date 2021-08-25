@@ -11,11 +11,10 @@ table {border-spacing: 0 !important;border-collapse: collapse !important;table-l
 @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {u ~ div .email-container {min-width: 320px !important;}}
 @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {u ~ div .email-container {min-width: 375px !important;}}
 @media only screen and (min-device-width: 414px) {u ~ div .email-container {min-width: 414px !important;}}</style></head>
-<body style="width: 100%; margin: 0; padding: 0 !important; background-color: ${backgroundColor};">
-<center aria-roledescription="email" lang="sk" style="width: 100%; background-color: ${backgroundColor};">
-<table align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" width="750" style="background-color: ${backgroundColor};">
+<body style="width:100%;margin:0;padding:0!important;background-color:${backgroundColor};"><center aria-roledescription="email" lang="sk" style="width:100%;background-color:${backgroundColor};">
+<table align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" width="750" style="background-color:${backgroundColor};">
 <tr><td style="text-align:center;font-family:arial;font-size:11px;background-color:${backgroundColor};color:${textColor};">V prípade, že sa vám tento mail nezobrazuje správne, <a href="*|ARCHIVE|*" style="text-decoration:underline;color:#7080FF">kliknite sem</a>.
-</td></tr><tr><td>${content}</td></tr><tr><td align="center" valign="top" style="padding-top:20px; padding-bottom:20px;"><br/><br/><table border="0" cellpadding="0" cellspacing="0"><tr>
+</td></tr><tr><td>${content}</td></tr><tr><td align="center" valign="top" style="padding-top:20px;padding-bottom:20px;"><br/><br/><table border="0" cellpadding="0" cellspacing="0"><tr>
 <td align="center" valign="top" style="background-color:${backgroundColor};color:${textColor};font-family:Helvetica,Arial,sans-serif;font-size:11px;line-height:150%;text-align:center;">
 Tento email bol zaslaný na <a href="mailto:*|EMAIL|*" target="_blank" style="color:#404040 !important;">*|EMAIL|*</a>
 <br/><a href="*|ABOUT_LIST|*" target="_blank" style="color:#404040 !important;"><em>Prečo mi prišiel tento email?</em></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="*|UNSUB|*" style="color:#404040 !important;">Odhlásiť z noviniek</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="*|UPDATE_PROFILE|*" style="color:#404040 !important;">

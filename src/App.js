@@ -75,12 +75,12 @@ export default function App() {
         language={language}
       /> 
       : 
-      <Steps current={currentStep} vertical className='w-200' className={'d-flex flex-column h-700 p-t-120 w-200'}>
-        <Steps.Item title={TRANSLATIONS['drop_images'][language]} />
-        <Steps.Item title={TRANSLATIONS['pick_width'][language]} />
-        <Steps.Item title={TRANSLATIONS['paste_links'][language]} />
-        <Steps.Item title={TRANSLATIONS['final_settings'][language]} />
-        <Steps.Item title={TRANSLATIONS['overview'][language]} />
+      <Steps current={currentStep} vertical={true} className={'d-flex flex-column h-700 p-t-120 w-200'}>
+        <Steps.Item title={TRANSLATIONS[language]['drop_images']} />
+        <Steps.Item title={TRANSLATIONS[language]['pick_width']} />
+        <Steps.Item title={TRANSLATIONS[language]['paste_links']} />
+        <Steps.Item title={TRANSLATIONS[language]['final_settings']} />
+        <Steps.Item title={TRANSLATIONS[language]['overview']} />
       </Steps> }
       { currentStep === 0 ?
         // upload images

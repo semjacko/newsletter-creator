@@ -1,79 +1,43 @@
 const TRANSLATIONS = {
-    'author': {
-        'en': 'author',
-        'sk': 'autor'
+    'sk': {
+        'lets_start': 'Začať',
+        'version': 'verzia',
+        'images': 'Obrázky',
+        'link_image': 'Link pre obrázok',
+        'drop_images': 'Vložte obrázky',
+        'drag_n_drop': 'Kliknite alebo Presuňte obrázky sem',
+        'pick_width': 'Zvolte šírku',
+        'paste_links': 'Vložte linky',
+        'final_settings': 'Posledné nastavenia',
+        'overview': 'Kontrola',
+        'next': 'Ďalej',
+        'back': 'Späť',
+        'save': 'Uložiť',
+        'settings': 'Nastavenia',
+        'title': 'Názov',
+        'bg_color': 'Farba pozadia',
+        'text_color': 'Farba textu'
     },
-    'lets_start': {
-        'en': 'Let\'s start',
-        'sk': 'Začať'
-    },
-    'version': {
-        'en': 'version',
-        'sk': 'verzia'
-    },
-    'images': {
-        'en': 'Images',
-        'sk': 'Obrázky'
-    },
-    'link_image': {
-        'en': 'Link for image',
-        'sk': 'Link pre obrázok'
-    },
-    'drop_images': {
-        'en': 'Drop images',
-        'sk': 'Vložte obrázky'
-    },
-    'drag_n_drop': {
-        'en': 'Click or Drag files to this area',
-        'sk': 'Kliknite alebo Presuňte obrázky sem'
-    },
-    'pick_width': {
-        'en': 'Pick width',
-        'sk': 'Zvolte šírku'
-    },
-    'paste_links': {
-        'en': 'Paste links',
-        'sk': 'Vložte linky'
-    },
-    'final_settings': {
-        'en': 'Final settings',
-        'sk': 'Posledné nastavenia'
-    },
-    'overview': {
-        'en': 'Overview',
-        'sk': 'Kontrola'
-    },
-    'next': {
-        'en': 'Next',
-        'sk': 'Ďalej'
-    },
-    'back': {
-        'en': 'Back',
-        'sk': 'Späť'
-    },
-    'save': {
-        'en': 'Save',
-        'sk': 'Uložiť'
-    },
-    'settings': {
-        'en': 'Settings',
-        'sk': 'Nastavenia'
-    },
-    'title': {
-        'en': 'Title',
-        'sk': 'Názov'
-    },
-    'bg_color': {
-        'en': 'Background color',
-        'sk': 'Farba pozadia'
-    },
-    'text_color': {
-        'en': 'Text color',
-        'sk': 'Farba textu'
+    'en': {
+        'lets_start': 'Let\'s start',
+        'version': 'version',
+        'images': 'Images',
+        'link_image': 'Link for image',
+        'drop_images': 'Drop images',
+        'drag_n_drop': 'Click or Drag files to this area',
+        'pick_width': 'Pick width',
+        'paste_links': 'Paste links',
+        'final_settings': 'Final settings',
+        'overview': 'Overview',
+        'next': 'Next',
+        'back': 'Back',
+        'save': 'Save',
+        'settings': 'Settings',
+        'title': 'Title',
+        'bg_color': 'Background color',
+        'text_color': 'Text color'
     }
-
 }
-
 
 const LANGUAGES = [
     {
