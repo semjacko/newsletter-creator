@@ -58,7 +58,7 @@ const Links = ({images, defaultLinks, width, onNext, onBack, language}) => {
             <Help title={'Paste links'} style={{position: 'absolute', top: 10, left: 10}}>
                 <p>Copy and paste image links.</p>
                 <p>If you paste more links (separated by a newline or whitespace) they will by propagated to the following inputs.</p>
-                <img src={'./files/pastelinks.gif'} style={{width: 600, margin: 20}}/>
+                <img src={'./files/pastelinks.gif'} alt={'links hint'} style={{width: 600, margin: 20}}/>
             </Help>
         </div>
     );

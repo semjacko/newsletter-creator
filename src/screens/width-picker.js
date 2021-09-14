@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import {RadioGroup, Radio, Button, ButtonGroup} from 'rsuite';
-import { detectWidths } from '../components/newsletter-controller';
 import { NewsletterView } from '../components/newsletter-view';
 import { TRANSLATIONS } from '../assets/lang';
 import { Help } from '../components/help';
 
-const WidthPicker = ({images, onNext, onBack, language}) => {
-    let widths = detectWidths(images);
-    console.log(widths);
-
+const WidthPicker = ({images, widths, onNext, onBack, language}) => {
     const [selected, setSelected] = useState(widths[0]);
+
+    if (widths.length <= 0) {
+        onBack();
+        return null;
+    }
 
     let radioWidths = [];
     for (let w of widths) {

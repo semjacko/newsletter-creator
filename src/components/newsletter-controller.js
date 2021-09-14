@@ -71,9 +71,9 @@ const createNL = (images, width, links, title, textColor, backgroundColor) => {
             html += `<td>`;
 
             if (links[i]) {
-                html += `<a href="${links[i]}"><img src="images/image${i+1}.jpg" alt="" width=${images[i].width} style="width:100%; max-width:${images[i].width}px; height:auto; display:block;"></a>`;
+                html += `<a href="${links[i]}"><img src="images/image${String(i+1).padStart(2, '0')}.jpg" alt="" width=${images[i].width} style="width:100%; max-width:${images[i].width}px; height:auto; display:block;"></a>`;
             } else {
-                html += `<img src="images/image${i+1}.jpg" alt="" width=${images[i].width} style="width:100%; max-width:${images[i].width}px; height:auto; display:block;">`;
+                html += `<img src="images/image${String(i+1).padStart(2, '0')}.jpg" alt="" width=${images[i].width} style="width:100%; max-width:${images[i].width}px; height:auto; display:block;">`;
             }
 
             html += `</td>`;
@@ -111,7 +111,7 @@ const createZip = async (html, images) => {
 
     for (let i = 0; i < images.length; i++) {
 		let data = await getDataFromUrl(images[i].src);
-		imgFolder.file( `image${i+1}.jpg`, data, {binary:true});
+		imgFolder.file( `image${String(i+1).padStart(2, '0')}.jpg`, data, {binary:true});
 	}
 
     zip.generateAsync({type:'blob'}).then((content) => {

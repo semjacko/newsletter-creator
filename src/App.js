@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Steps, SelectPicker } from 'rsuite';
+import { Steps, SelectPicker, Alert } from 'rsuite';
 import { Images } from './screens/images';
 import { Home } from './screens/home';
 import { WidthPicker } from './screens/width-picker';
 import { Links } from './screens/links';
 import { Settings } from './screens/settings';
 import { Save } from './screens/save';
-import { createNL, createZip } from './components/newsletter-controller';
+import { createNL, createZip, detectWidths } from './components/newsletter-controller';
 import { DEFAULT_BACKGROUND_COLOR, DEFAULT_LANGUAGE, DEFAULT_TEXT_COLOR, DEFAULT_TITLE } from './assets/constants';
 import { TRANSLATIONS, LANGUAGES } from './assets/lang';
 
@@ -14,20 +14,27 @@ export default function App() {
   const [currentStep, setCurrentStep] = useState(-1);
   const [images, setImages] = useState([]);
   const [links, setLinks] = useState([]);
-  const [width, setWidth] = useState(0);
+  const [widths, setWidths] = useState(0);
+  const [selectedWidth, setSelectedWidth] = useState([]);
   const [title, setTitle] = useState(DEFAULT_TITLE);
   const [textColor, setTextColor] = useState(DEFAULT_TEXT_COLOR);
   const [backgroundColor, setBackgroundColor] = useState(DEFAULT_BACKGROUND_COLOR);
   const [language, setLanguage] = useState(DEFAULT_LANGUAGE);
 
   const onImagesDrop = (images) => {
+    let detectedWidths = detectWidths(images);
+    if (detectedWidths.length <= 0) {
+      Alert.error('Error. Can\'t make a newsletter from these images. Make sure they are sorted alphabetically', 8000);
+      return;
+    }
     setImages(images);
+    setWidths(detectedWidths);
     setLinks(images.map(e => ''))
     setCurrentStep(currentStep + 1);
   }
 
   const onWidthPick = (value) => {
-    setWidth(value);
+    setSelectedWidth(value);
     setCurrentStep(currentStep + 1);
   }
   
@@ -44,7 +51,7 @@ export default function App() {
   }
 
   const onSave = () => {
-    let html = createNL(images, width, links, title, textColor, backgroundColor);
+    let html = createNL(images, selectedWidth, links, title, textColor, backgroundColor);
     var prettier = require('js-beautify').html;
     let beautifulHTML = prettier(html);
     createZip(beautifulHTML, images);
@@ -92,6 +99,7 @@ export default function App() {
         // pick a width
         <WidthPicker 
           images={images} 
+          widths={widths}
           onNext={onWidthPick}
           onBack={onBack}
           language={language}
@@ -101,7 +109,7 @@ export default function App() {
         <Links 
           images={images}
           defaultLinks={links} 
-          width={width} 
+          width={selectedWidth} 
           onNext={onLinksPick}
           onBack={onBack}
           language={language}
@@ -110,7 +118,7 @@ export default function App() {
         // final settings
         <Settings
           images={images}
-          width={width}
+          width={selectedWidth}
           defaultTitle={title}
           defaultTextColor={textColor}
           defaultBackgroundColor={backgroundColor}
@@ -122,7 +130,7 @@ export default function App() {
         // overview and save
         <Save 
           images={images} 
-          width={width}
+          width={selectedWidth}
           links={links}
           title={title}
           textColor={textColor}

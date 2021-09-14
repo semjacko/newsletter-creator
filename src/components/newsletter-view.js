@@ -4,6 +4,10 @@ const NL_HEADER = () => <p style={{fontSize: 12}}>V prípade, že sa vám tento 
 const NL_FOOTER = () => <><p style={{fontSize: 12}}>Tento email bol zaslaný na váš email</p><p style={{fontSize: 12}}>Prečo mi prišiel tento email? &nbsp;  Odhlásiť z noviniek &nbsp; Zmeniť nastavenia</p></>;
 
 const NewsletterView = ({images, links, width, backgroundColor, textColor, imageHighlights, showHeaderAndFooter, maxWidth, maxHeight}) => {
+    if (!width) {
+        return null;
+    }
+
     let rows = [],
         i = 0;
 
