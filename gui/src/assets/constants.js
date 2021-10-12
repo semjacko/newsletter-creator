@@ -1,5 +1,5 @@
 const DEFAULT_LANGUAGE = 'en';
-const DEFAULT_TITLE = 'COOP Newsletter 1.1.2021';
+const DEFAULT_TITLE = 'COOP Newsletter';
 const DEFAULT_TEXT_COLOR = '#000000';
 const DEFAULT_BACKGROUND_COLOR = '#ffffff';
 

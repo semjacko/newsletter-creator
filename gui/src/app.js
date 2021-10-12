@@ -6,7 +6,7 @@ import { WidthPicker } from './screens/width-picker';
 import { Links } from './screens/links';
 import { Settings } from './screens/settings';
 import { Save } from './screens/save';
-import { createNL, createZip, detectWidths } from './components/newsletter-controller';
+import { createNL, createZip, detectWidths, getCurrentDate } from './components/newsletter-controller';
 import { DEFAULT_BACKGROUND_COLOR, DEFAULT_LANGUAGE, DEFAULT_TEXT_COLOR, DEFAULT_TITLE } from './assets/constants';
 import { TRANSLATIONS, LANGUAGES } from './assets/lang';
 
@@ -16,7 +16,7 @@ export default function App() {
   const [links, setLinks] = useState([]);
   const [widths, setWidths] = useState(0);
   const [selectedWidth, setSelectedWidth] = useState([]);
-  const [title, setTitle] = useState(DEFAULT_TITLE);
+  const [title, setTitle] = useState(`${DEFAULT_TITLE} ${getCurrentDate(true)}`);
   const [textColor, setTextColor] = useState(DEFAULT_TEXT_COLOR);
   const [backgroundColor, setBackgroundColor] = useState(DEFAULT_BACKGROUND_COLOR);
   const [language, setLanguage] = useState(DEFAULT_LANGUAGE);

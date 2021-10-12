@@ -105,6 +105,23 @@ const getDataFromUrl = (url) => {
 	});
 }
 
+const getCurrentDate = (pretty=false) => {
+    let today = new Date();  
+
+    let dd = today.getDate(),
+        mm = today.getMonth() + 1,
+        yyyy = today.getFullYear();
+    
+    mm = mm < 10 ? '0' + mm : mm;
+    dd = dd < 10 ? '0' + dd : dd;
+    
+    if (pretty) {
+        return `${dd}. ${mm}. ${yyyy}`;
+    } else {
+        return `${yyyy}${mm}${dd}`;
+    }
+}
+
 const createZip = async (html, images) => {
 	zip.file('index.html', html);
     let imgFolder = zip.folder('images');
@@ -115,8 +132,8 @@ const createZip = async (html, images) => {
 	}
 
     zip.generateAsync({type:'blob'}).then((content) => {
-		saveAs(content, 'newsletter.zip');
+		saveAs(content, `newsletter${getCurrentDate()}.zip`);
 	});
 }
 
-export { detectWidths, createNL, createZip };
+export { detectWidths, createNL, createZip, getCurrentDate };
