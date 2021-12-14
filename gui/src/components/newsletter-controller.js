@@ -10,10 +10,10 @@ const tryWidth = (width, images) => {
         let currRowWidth = 0;
         let j = i;
 
-        // skus vytvorit riadok obrazkov
+        // try create a row of images
         while (j < images.length && currRowWidth < width) {
             currRowWidth += images[j].width;
-            // ak obrazky v riadku nemaju rovnaku vysku
+            // if images in same row dont have same height
             if (j > i && images[j].height !== images[j-1].height) {
                 return false;
             }
@@ -22,6 +22,7 @@ const tryWidth = (width, images) => {
         
         i = j;
 
+        // current row width different than required
         if (currRowWidth !== width) {
             return false;	
         }
@@ -32,9 +33,9 @@ const tryWidth = (width, images) => {
 }
 
 const detectWidths = (images) => {
-    // vyskusa najprv v prvom riadku jeden obrazok
-    // prejde do druheho, vklada obrazky dokedy nie su cca == doterajsia sirka, 
-    // ak moc prekrocia skusi v prvom riadku 2 obrazky atd..
+    // at the beginning try one image in the first row
+    // continues to second row and inserts pictures until the are == current width, 
+    // if they exceed the width, try two images in the first row etc...
     
     let width = 0,
         widths = [],
@@ -43,7 +44,7 @@ const detectWidths = (images) => {
     while (i < images.length) {
         width += images[i].width;
 
-        // skusi sa zostavit NL s danou sirkou
+        // try create newsletter with a given width
         if (tryWidth(width, images)) {
             widths.push(width);
         }
